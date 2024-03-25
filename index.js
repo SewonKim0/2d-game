@@ -15,12 +15,18 @@ let player = {
 let blocks = []
 let levels = ["generatedMap", "map", "level1", "level2"]
 let levelIndex = 0
+let currTime = 0
 
 // function to render the state of game
 function game() {
+    // get delta multiplier (to account for frame speed)
+    const deltaTime = (performance.now() - currTime)
+    currTime = performance.now()
+    const deltaMultiplier = deltaTime / 16
+
     // render game map & player
     const returnData = render(canvas, ctx, mousePosition, player, blocks)
-    if (returnData.end === true) {
+    if (returnData.end === true) { // end block detected
         player.pos = [0, 0]
         
         levelIndex++
@@ -28,7 +34,7 @@ function game() {
     }
 
     // update player pos (with collision detection)
-    updatePlayer(player, blocks)
+    updatePlayer(player, blocks, deltaMultiplier)
 
     requestAnimationFrame(game)
 }

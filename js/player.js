@@ -43,8 +43,12 @@ document.addEventListener('keyup', (e) => {
  * Collision detection is also handled here
  * @param {Object} player Player object
  * @param {Object[]} blocks Blocks in the map
+ * @param {number} deltaMultiplier Delta time multiplier
  */
-export function updatePlayer(player, blocks) {
+export function updatePlayer(player, blocks, deltaMultiplier) {
+    const speed = 3 * deltaMultiplier
+
+    // up
     if (playerMvt.up) {
         // if within 20 px of horizontal bounds
         // if within 20 px of vertical collision (up, down)
@@ -64,9 +68,10 @@ export function updatePlayer(player, blocks) {
             }
         }
         if (!collision) {
-            player.pos[1] -= 3
+            player.pos[1] -= speed
         }
     }
+    // down
     if (playerMvt.down) {
         let collision = false
         for (const block of blocks) {
@@ -84,9 +89,10 @@ export function updatePlayer(player, blocks) {
             }
         }
         if (!collision) {
-            player.pos[1] += 3
+            player.pos[1] += speed
         }
     }
+    // left
     if (playerMvt.left) {
         let collision = false
         for (const block of blocks) {
@@ -104,9 +110,10 @@ export function updatePlayer(player, blocks) {
             }
         }
         if (!collision) {
-            player.pos[0] -= 3
+            player.pos[0] -= speed
         }
     }
+    // right
     if (playerMvt.right) {
         let collision = false
         for (const block of blocks) {
@@ -124,7 +131,7 @@ export function updatePlayer(player, blocks) {
             }
         }
         if (!collision) {
-            player.pos[0] += 3
+            player.pos[0] += speed
         }
     }
 }
