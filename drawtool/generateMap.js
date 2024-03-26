@@ -24,7 +24,7 @@ export function generateMap() {
         }
         const type = classToType[cell.className]
 
-        const BLOCK_SIZE = 60
+        const BLOCK_SIZE = 64
         const BLOCK_OFFSET = -9.5
 
         return {

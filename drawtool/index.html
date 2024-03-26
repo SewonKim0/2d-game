@@ -66,20 +66,29 @@
         }
 
         /* Grid Cell Types */
-        .grid > div.normal {
-            background-color: lightgray;
-        }
-        .grid > div.end {
-            background-color: lime;
-        }
         .grid > div.start {
             background-color: lightblue;
+        }
+
+        /* Block Type Buttons */
+        .block-types {
+            margin-top: 0.3rem;
+        }
+        .block-type {
+            margin-right: 1rem;
+            border: 3px solid black;
+            padding: 0.3rem;
         }
     </style>
 </head>
 <body>
     <div class="controls">
-        <p> <b>Click:</b> toggle between block types: (empty, normal, end) </p>
+        <p> <b>Click:</b> toggle usage of selected block type</p>
+
+        <div class="block-types">
+            <!-- Buttons generated via js -->
+        </div>
+
         <button class="generate-button"> Generate Map </button>
     </div>
 

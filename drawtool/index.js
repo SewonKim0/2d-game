@@ -1,6 +1,24 @@
 import { downloadJson } from "./downloadJson.js"
 import { generateMap } from "./generateMap.js"
 
+// block types data
+const BLOCK_TYPES = [
+  { name: "normal", color: "lightgray" },
+  { name: "end", color: "lime" }
+]
+let blockTypeIndex = 0
+
+// generate block types buttons
+const blockTypes = document.querySelector(".block-types")
+for (const blockType of BLOCK_TYPES) {
+  const button = document.createElement("button")
+  button.textContent = blockType.name
+  button.style.backgroundColor = blockType.color
+  button.className = "block-type"
+  blockTypes.appendChild(button)
+}
+blockTypes.children[0].style.fontWeight = "bolder"
+
 // generate grid
 const grid = document.querySelector(".grid")
 for (let row = 0; row < 20; row++) {
@@ -14,7 +32,7 @@ for (let row = 0; row < 20; row++) {
 const cells = document.querySelectorAll(".grid > div")
 cells[189].className = "start"
 
-// grid cells listeners
+// button click: grid cells listeners
 for (const cell of cells) {
   cell.addEventListener("click", () => {
     // exclude start cell
@@ -22,17 +40,35 @@ for (const cell of cells) {
       return
     }
 
+    // toggle block type
+    console.log(blockTypeIndex) // TEST
+    const blockType = BLOCK_TYPES[blockTypeIndex]
     if (cell.className === "") {
-        cell.className = "normal"
-    } else if (cell.className === "normal") {
-        cell.className = "end"
-    } else if (cell.className === "end") {
-        cell.className = ""
+      cell.className = blockType.name
+      cell.style.backgroundColor = blockType.color
+    } else {
+      cell.className = ""
+      cell.style.backgroundColor = "white"
     }
   })
 }
 
-// generate map button
+// button click: select block type
+const blockTypeButtons = document.querySelectorAll(".block-type")
+for (const button of blockTypeButtons) {
+  button.addEventListener("click", () => {
+    // button selected bold
+    for (const button of blockTypeButtons) {
+      button.style.fontWeight = "normal"
+    }
+    button.style.fontWeight = "bolder"
+
+    blockTypeIndex = BLOCK_TYPES.findIndex(blockType => blockType.name === button.textContent)
+  })
+
+}
+
+// button click: generate map
 const generateButton = document.querySelector(".generate-button")
 generateButton.addEventListener("click", () => {
   const map = generateMap()
