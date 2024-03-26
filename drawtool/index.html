@@ -28,7 +28,7 @@
         .controls {
             border: 3px solid black;
             width: 90%;
-            padding: 1rem;
+            padding: 0.5rem;
 
             display: flex;
             flex-direction: column;
@@ -79,11 +79,30 @@
             border: 3px solid black;
             padding: 0.3rem;
         }
+
+        /* Top Section */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-section > a {
+            text-decoration: none;
+            color: black;
+            border: 3px solid black;
+            padding: 0.5rem;
+        }
+        .top-section > a:hover {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="controls">
-        <p> <b>Click:</b> toggle usage of selected block type</p>
+        <div class="top-section">
+            <p> <b>Click:</b> toggle usage of selected block type</p>
+            <a href=".."> Back To Game </a>
+        </div>
 
         <div class="block-types">
             <!-- Buttons generated via js -->
