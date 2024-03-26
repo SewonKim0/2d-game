@@ -45,25 +45,27 @@ export function render(canvas, ctx, mousePosition, player, blocks) {
         const blockX = (block.pos[0] - player.pos[0]) + (boardWidth / 2)
         const blockY = (block.pos[1] - player.pos[1]) + (boardHeight / 2)
 
-        // end block
-        if (block.type === "end") {
-            ctx.beginPath()
-            ctx.fillStyle = "lime"
-            ctx.globalAlpha = 0.4
-            ctx.fillRect(blockX, blockY, block.size[0], block.size[1])
-            ctx.globalAlpha = 1
+        // handle rendering for each block type
+        const BLOCK_HANDLERS = {
+            undefined: () => {
+                ctx.beginPath()
+                ctx.strokeRect(blockX, blockY, block.size[0], block.size[1])
+            },
+            end: () => {
+                ctx.beginPath()
+                ctx.fillStyle = "lime"
+                ctx.globalAlpha = 0.4
+                ctx.fillRect(blockX, blockY, block.size[0], block.size[1])
+                ctx.globalAlpha = 1
 
-            // check if player is within end block
-            if (playerX > blockX && playerX < blockX + block.size[0] &&
-                playerY > blockY && playerY < blockY + block.size[1]) {
-                returnData.end = true
+                // check if player is within end block
+                if (playerX > blockX && playerX < blockX + block.size[0] &&
+                    playerY > blockY && playerY < blockY + block.size[1]) {
+                    returnData.end = true
+                }
             }
         }
-        // normal block
-        else {
-            ctx.beginPath()
-            ctx.strokeRect(blockX, blockY, block.size[0], block.size[1])
-        }
+        BLOCK_HANDLERS[block.type]()
     }
 
     return returnData

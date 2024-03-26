@@ -26,7 +26,9 @@ function game() {
 
     // render game map & player
     const returnData = render(canvas, ctx, mousePosition, player, blocks)
-    if (returnData.end === true) { // end block detected
+
+    // handle end block collision
+    if (returnData.end === true) {
         player.pos = [0, 0]
         
         levelIndex++
