@@ -1,5 +1,4 @@
 ### Puzzle Game
-- Block Collision: resolve crash on slow frame rate error
 - Elasticity: update game @ draw-tool such that new block creation is easy
     Drawtool: buttons on top for each block type, click to set as curr
 - Kill Block: type="kill"

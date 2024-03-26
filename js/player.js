@@ -61,7 +61,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
             const x2 = block.pos[0] + block.size[0] + 20
             if (player.pos[0] > x1 && player.pos[0] < x2) {
                 const y1 = block.pos[1] - 20
-                const y2 = block.pos[1] + block.size[1] + 25
+                const y2 = block.pos[1] + block.size[1] + 28
                 if (player.pos[1] > y1 && player.pos[1] < y2) {
                     collision = true
                 }
@@ -81,7 +81,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
             const x1 = block.pos[0] - 20
             const x2 = block.pos[0] + block.size[0] + 20
             if (player.pos[0] > x1 && player.pos[0] < x2) {
-                const y1 = block.pos[1] - 25
+                const y1 = block.pos[1] - 28
                 const y2 = block.pos[1] + block.size[1] + 20
                 if (player.pos[1] > y1 && player.pos[1] < y2) {
                     collision = true
@@ -103,7 +103,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
             const y2 = block.pos[1] + block.size[1] + 20
             if (player.pos[1] > y1 && player.pos[1] < y2) {
                 const x1 = block.pos[0] - 20
-                const x2 = block.pos[0] + block.size[0] + 25
+                const x2 = block.pos[0] + block.size[0] + 28
                 if (player.pos[0] > x1 && player.pos[0] < x2) {
                     collision = true
                 }
@@ -123,7 +123,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
             const y1 = block.pos[1] - 20
             const y2 = block.pos[1] + block.size[1] + 20
             if (player.pos[1] > y1 && player.pos[1] < y2) {
-                const x1 = block.pos[0] - 25
+                const x1 = block.pos[0] - 28
                 const x2 = block.pos[0] + block.size[0] + 20
                 if (player.pos[0] > x1 && player.pos[0] < x2) {
                     collision = true
