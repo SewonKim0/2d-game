@@ -13,7 +13,7 @@ let player = {
     pos: [0, 0]
 }
 let blocks = []
-let levels = ["generatedMap", "map", "level1", "level2"]
+let levels = ["map", "level1", "level2"]
 let levelIndex = 0
 let currTime = 0
 
@@ -33,6 +33,11 @@ function game() {
         
         levelIndex++
         loadMap(blocks, levels[levelIndex])
+    }
+
+    // handle kill block collision
+    if (returnData.kill === true) {
+        player.pos = [0, 0]
     }
 
     // update player pos (with collision detection)

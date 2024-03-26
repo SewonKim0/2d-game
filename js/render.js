@@ -47,7 +47,7 @@ export function render(canvas, ctx, mousePosition, player, blocks) {
 
         // handle rendering for each block type
         const BLOCK_HANDLERS = {
-            undefined: () => {
+            normal: () => {
                 ctx.beginPath()
                 ctx.strokeRect(blockX, blockY, block.size[0], block.size[1])
             },
@@ -62,6 +62,19 @@ export function render(canvas, ctx, mousePosition, player, blocks) {
                 if (playerX > blockX && playerX < blockX + block.size[0] &&
                     playerY > blockY && playerY < blockY + block.size[1]) {
                     returnData.end = true
+                }
+            },
+            kill: () => {
+                ctx.beginPath()
+                ctx.fillStyle = "red"
+                ctx.globalAlpha = 0.4
+                ctx.fillRect(blockX, blockY, block.size[0], block.size[1])
+                ctx.globalAlpha = 1
+
+                // check if player is within kill block
+                if (playerX > blockX - 20 && playerX < blockX + block.size[0] + 20 &&
+                    playerY > blockY - 20 && playerY < blockY + block.size[1] + 20) {
+                    returnData.kill = true
                 }
             }
         }

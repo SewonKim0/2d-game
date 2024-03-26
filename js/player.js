@@ -54,7 +54,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
         // if within 20 px of vertical collision (up, down)
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end") {
+            if (block.type === "end" || block.type === "kill") {
                 continue
             }
             const x1 = block.pos[0] - 20
@@ -75,7 +75,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.down) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end") {
+            if (block.type === "end" || block.type === "kill") {
                 continue
             }
             const x1 = block.pos[0] - 20
@@ -96,7 +96,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.left) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end") {
+            if (block.type === "end" || block.type === "kill") {
                 continue
             }
             const y1 = block.pos[1] - 20
@@ -117,7 +117,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.right) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end") {
+            if (block.type === "end" || block.type === "kill") {
                 continue
             }
             const y1 = block.pos[1] - 20

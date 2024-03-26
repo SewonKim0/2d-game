@@ -4,7 +4,8 @@ import { generateMap } from "./generateMap.js"
 // block types data
 const BLOCK_TYPES = [
   { name: "normal", color: "lightgray" },
-  { name: "end", color: "lime" }
+  { name: "end", color: "lime" },
+  { name: "kill", color: "red" }
 ]
 let blockTypeIndex = 0
 
@@ -18,6 +19,7 @@ for (const blockType of BLOCK_TYPES) {
   blockTypes.appendChild(button)
 }
 blockTypes.children[0].style.fontWeight = "bolder"
+blockTypes.children[0].style.borderWidth = "4px"
 
 // generate grid
 const grid = document.querySelector(".grid")
@@ -41,7 +43,6 @@ for (const cell of cells) {
     }
 
     // toggle block type
-    console.log(blockTypeIndex) // TEST
     const blockType = BLOCK_TYPES[blockTypeIndex]
     if (cell.className === "") {
       cell.className = blockType.name
@@ -60,8 +61,10 @@ for (const button of blockTypeButtons) {
     // button selected bold
     for (const button of blockTypeButtons) {
       button.style.fontWeight = "normal"
+      button.style.borderWidth = "3px"
     }
     button.style.fontWeight = "bolder"
+    button.style.borderWidth = "4px"
 
     blockTypeIndex = BLOCK_TYPES.findIndex(blockType => blockType.name === button.textContent)
   })

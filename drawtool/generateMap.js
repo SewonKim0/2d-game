@@ -17,13 +17,6 @@ export function generateMap() {
         const row = Math.floor(cellIndex / 20)
         const col = cellIndex % 20
 
-        // get cell type
-        const classToType = {
-            normal: undefined,
-            end: "end"
-        }
-        const type = classToType[cell.className]
-
         const BLOCK_SIZE = 64
         const BLOCK_OFFSET = -9.5
 
@@ -33,7 +26,7 @@ export function generateMap() {
                 (row * BLOCK_SIZE) + (BLOCK_SIZE * BLOCK_OFFSET)
             ],
             size: [BLOCK_SIZE, BLOCK_SIZE],
-            type: type
+            type: cell.className
         }
     })
     map = map.filter(cell => cell !== null)
