@@ -1,6 +1,7 @@
 /**
  * Renders the current game state with given data
  * Renders both player and blocks
+ * @param {Object} BLOCK_HANDLERS Object containing functions to render each block type
  * @param {HTMLElement} canvas Canvas element of page
  * @param {*} ctx Context of canvas element
  * @param {Number[]} mousePosition Current mouse position [x, y]
@@ -8,7 +9,7 @@
  * @param {Object[]} blocks Blocks array
  * @return {Object} Return data based on current state of map { end: bool }
  */
-export function render(canvas, ctx, mousePosition, player, blocks) {
+export function render(BLOCK_HANDLERS, canvas, ctx, mousePosition, player, blocks) {
     const returnData = {}
 
     // board dims
@@ -46,39 +47,15 @@ export function render(canvas, ctx, mousePosition, player, blocks) {
         const blockY = (block.pos[1] - player.pos[1]) + (boardHeight / 2)
 
         // handle rendering for each block type
-        const BLOCK_HANDLERS = {
-            normal: () => {
-                ctx.beginPath()
-                ctx.strokeRect(blockX, blockY, block.size[0], block.size[1])
-            },
-            end: () => {
-                ctx.beginPath()
-                ctx.fillStyle = "lime"
-                ctx.globalAlpha = 0.4
-                ctx.fillRect(blockX, blockY, block.size[0], block.size[1])
-                ctx.globalAlpha = 1
-
-                // check if player is within end block
-                if (playerX > blockX && playerX < blockX + block.size[0] &&
-                    playerY > blockY && playerY < blockY + block.size[1]) {
-                    returnData.end = true
-                }
-            },
-            kill: () => {
-                ctx.beginPath()
-                ctx.fillStyle = "red"
-                ctx.globalAlpha = 0.4
-                ctx.fillRect(blockX, blockY, block.size[0], block.size[1])
-                ctx.globalAlpha = 1
-
-                // check if player is within kill block
-                if (playerX > blockX - 20 && playerX < blockX + block.size[0] + 20 &&
-                    playerY > blockY - 20 && playerY < blockY + block.size[1] + 20) {
-                    returnData.kill = true
-                }
-            }
-        }
-        BLOCK_HANDLERS[block.type]()
+        BLOCK_HANDLERS[block.type]({
+            ctx: ctx,
+            playerX: playerX,
+            playerY: playerY,
+            blockX: blockX,
+            blockY: blockY,
+            block: block,
+            returnData: returnData
+        })
     }
 
     return returnData

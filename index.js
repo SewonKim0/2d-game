@@ -2,6 +2,7 @@ import { updatePlayer } from "./js/player.js"
 import { display } from "./js/display.js"
 import { render } from "./js/render.js"
 import { loadMap } from "./js/loadMap.js"
+import { levels, BLOCK_HANDLERS } from "./js/configuration.js"
 
 // setup canvas
 let canvas = document.querySelector('canvas')
@@ -13,7 +14,6 @@ let player = {
     pos: [0, 0]
 }
 let blocks = []
-let levels = ["map", "level1", "level2"]
 let levelIndex = 0
 let currTime = 0
 
@@ -25,7 +25,7 @@ function game() {
     const deltaMultiplier = deltaTime / 16
 
     // render game map & player
-    const returnData = render(canvas, ctx, mousePosition, player, blocks)
+    const returnData = render(BLOCK_HANDLERS, canvas, ctx, mousePosition, player, blocks)
 
     // handle end block collision
     if (returnData.end === true) {
