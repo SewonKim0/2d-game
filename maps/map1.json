@@ -1,0 +1,4 @@
+[{"pos":[-96,-32],"size":[64,64],"type":"kill"},
+{"pos":[32,-32],"size":[64,64],"type":"normal"},
+{"pos":[-32,32],"size":[64,64],"type":"end"},
+{"pos":[-96,-96],"size":[64,64],"type":"moving", "motion":[-128, -128], "frameCount": 200 }]
