@@ -34,3 +34,6 @@ export const BLOCK_HANDLERS = {
         }
     }
 }
+
+// NO_COLLISION_BLOCKS: block types that do not collide with player
+export const NO_COLLISION_BLOCKS = ["end", "kill"]

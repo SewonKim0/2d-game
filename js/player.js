@@ -41,11 +41,12 @@ document.addEventListener('keyup', (e) => {
 /**
  * This function is responsible for updating the player's position in response to user input
  * Collision detection is also handled here
+ * @param {String[]} NO_COLLISION_BLOCKS Block types that do not collide with player
  * @param {Object} player Player object
  * @param {Object[]} blocks Blocks in the map
  * @param {number} deltaMultiplier Delta time multiplier
  */
-export function updatePlayer(player, blocks, deltaMultiplier) {
+export function updatePlayer(NO_COLLISION_BLOCKS, player, blocks, deltaMultiplier) {
     const speed = 3 * deltaMultiplier
 
     // up
@@ -54,7 +55,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
         // if within 20 px of vertical collision (up, down)
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end" || block.type === "kill") {
+            if (NO_COLLISION_BLOCKS.includes(block.type)) {
                 continue
             }
             const x1 = block.pos[0] - 20
@@ -75,7 +76,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.down) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end" || block.type === "kill") {
+            if (NO_COLLISION_BLOCKS.includes(block.type)) {
                 continue
             }
             const x1 = block.pos[0] - 20
@@ -96,7 +97,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.left) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end" || block.type === "kill") {
+            if (NO_COLLISION_BLOCKS.includes(block.type)) {
                 continue
             }
             const y1 = block.pos[1] - 20
@@ -117,7 +118,7 @@ export function updatePlayer(player, blocks, deltaMultiplier) {
     if (playerMvt.right) {
         let collision = false
         for (const block of blocks) {
-            if (block.type === "end" || block.type === "kill") {
+            if (NO_COLLISION_BLOCKS.includes(block.type)) {
                 continue
             }
             const y1 = block.pos[1] - 20

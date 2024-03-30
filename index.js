@@ -2,7 +2,7 @@ import { updatePlayer } from "./js/player.js"
 import { display } from "./js/display.js"
 import { render } from "./js/render.js"
 import { loadMap } from "./js/loadMap.js"
-import { levels, BLOCK_HANDLERS } from "./js/configuration.js"
+import { levels, BLOCK_HANDLERS, NO_COLLISION_BLOCKS } from "./js/configuration.js"
 
 // setup canvas
 let canvas = document.querySelector('canvas')
@@ -41,7 +41,7 @@ function game() {
     }
 
     // update player pos (with collision detection)
-    updatePlayer(player, blocks, deltaMultiplier)
+    updatePlayer(NO_COLLISION_BLOCKS, player, blocks, deltaMultiplier)
 
     requestAnimationFrame(game)
 }
