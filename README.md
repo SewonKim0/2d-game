@@ -1,7 +1,9 @@
 ### Puzzle Game
+- Draw Tool: make json unpack system (edit existing maps)
+- Draw Tool: make moving block frameCount customizable
+- Moving: fix vertical movers going haywire error
 - 2 levels
-- Moving Block: motion=[x, y]
-    deletion of motion block: deletes the alternate as well
+- Levels: create victory system at end of levels
 - Shoot: use bullet to break block, limited bullets
 - Health System: ...
 - Turret: if player seen, shoots (depletes health)
