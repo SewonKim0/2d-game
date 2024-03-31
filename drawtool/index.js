@@ -2,16 +2,12 @@ import { downloadJson } from "./downloadJson.js"
 import { generateMap } from "./generateMap.js"
 import { BLOCK_TYPES } from "./configuration.js"
 import { generateGrid, generateTypesButtons } from "./initialGeneration.js"
-generateGrid()
-generateTypesButtons(BLOCK_TYPES)
+const cells = generateGrid()
+const blockTypeButtons = generateTypesButtons(BLOCK_TYPES)
 
 // dynamic variables
 let blockTypeIndex = 0
 let prevMoveBlock = null
-
-// mark start cell
-const cells = document.querySelectorAll(".grid > div")
-cells[189].className = "start"
 
 // button click: grid cells listeners
 for (const cell of cells) {
@@ -34,7 +30,6 @@ for (const cell of cells) {
 }
 
 // button click: select block type
-const blockTypeButtons = document.querySelectorAll(".block-type")
 for (const button of blockTypeButtons) {
   button.addEventListener("click", () => {
     // button selected bold
