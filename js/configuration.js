@@ -33,7 +33,7 @@ export const BLOCK_HANDLERS = {
             returnData.kill = true
         }
     },
-    moving: ({ ctx, blockX, blockY, block }) => {
+    moving: ({ ctx, blockX, blockY, playerX, playerY, block, returnData }) => {
         ctx.beginPath()
         ctx.fillStyle = "red"
         ctx.globalAlpha = 0.4
@@ -64,8 +64,14 @@ export const BLOCK_HANDLERS = {
                 block.forward = true
             }
         }
+
+        // check if player is within kill block
+        if (playerX > blockX - 20 && playerX < blockX + block.size[0] + 20 &&
+            playerY > blockY - 20 && playerY < blockY + block.size[1] + 20) {
+            returnData.kill = true
+        }
     }
 }
 
 // NO_COLLISION_BLOCKS: block types that do not collide with player
-export const NO_COLLISION_BLOCKS = ["end", "kill"]
+export const NO_COLLISION_BLOCKS = ["end", "kill", "moving"]

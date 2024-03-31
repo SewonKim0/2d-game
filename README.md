@@ -1,7 +1,7 @@
 ### Puzzle Game
-- Modal: create modal function
 - 2 levels
 - Moving Block: motion=[x, y]
+    Kill feature: make moving block kill on contact
     deletion of motion block: deletes the alternate as well
 - Shoot: use bullet to break block, limited bullets
 - Health System: ...
