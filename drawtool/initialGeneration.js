@@ -4,6 +4,8 @@ export function generateGrid() {
     for (let row = 0; row < 20; row++) {
         for (let col = 0; col < 20; col++) {
             const cell = document.createElement("div")
+            cell.dataset.row = row
+            cell.dataset.col = col
             grid.appendChild(cell)
         }
     }

@@ -1,3 +1,5 @@
+import { BLOCK_SIZE, BLOCK_OFFSET, FRAME_COUNT } from "./configuration.js"
+
 /**
  * This function generates a map for the drawing
  * @returns {Object[]} The map block objects in an array
@@ -12,13 +14,14 @@ export function generateMap() {
         if (cell.className === "" || cell.className === "start") {
             return null
         }
+        // moving cells with no motion -> null
+        if (cell.className === "moving" && cell.dataset.motion === undefined) {
+            return null
+        }
 
         // get cell pos
         const row = Math.floor(cellIndex / 20)
         const col = cellIndex % 20
-
-        const BLOCK_SIZE = 64
-        const BLOCK_OFFSET = -9.5
 
         return {
             pos: [
@@ -26,7 +29,9 @@ export function generateMap() {
                 (row * BLOCK_SIZE) + (BLOCK_SIZE * BLOCK_OFFSET)
             ],
             size: [BLOCK_SIZE, BLOCK_SIZE],
-            type: cell.className
+            type: cell.className,
+            motion: JSON.parse(cell.dataset.motion),
+            frameCount: FRAME_COUNT
         }
     })
     map = map.filter(cell => cell !== null)
