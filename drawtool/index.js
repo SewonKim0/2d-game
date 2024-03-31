@@ -1,34 +1,13 @@
 import { downloadJson } from "./downloadJson.js"
 import { generateMap } from "./generateMap.js"
+import { BLOCK_TYPES } from "./configuration.js"
+import { generateGrid, generateTypesButtons } from "./initialGeneration.js"
+generateGrid()
+generateTypesButtons(BLOCK_TYPES)
 
-// block types data
-const BLOCK_TYPES = [
-  { name: "normal", color: "lightgray" },
-  { name: "end", color: "lime" },
-  { name: "kill", color: "red" }
-]
+// dynamic variables
 let blockTypeIndex = 0
-
-// generate block types buttons
-const blockTypes = document.querySelector(".block-types")
-for (const blockType of BLOCK_TYPES) {
-  const button = document.createElement("button")
-  button.textContent = blockType.name
-  button.style.backgroundColor = blockType.color
-  button.className = "block-type"
-  blockTypes.appendChild(button)
-}
-blockTypes.children[0].style.fontWeight = "bolder"
-blockTypes.children[0].style.borderWidth = "4px"
-
-// generate grid
-const grid = document.querySelector(".grid")
-for (let row = 0; row < 20; row++) {
-  for (let col = 0; col < 20; col++) {
-    const cell = document.createElement("div")
-    grid.appendChild(cell)
-  }
-}
+let prevMoveBlock = null
 
 // mark start cell
 const cells = document.querySelectorAll(".grid > div")
@@ -68,7 +47,6 @@ for (const button of blockTypeButtons) {
 
     blockTypeIndex = BLOCK_TYPES.findIndex(blockType => blockType.name === button.textContent)
   })
-
 }
 
 // button click: generate map
