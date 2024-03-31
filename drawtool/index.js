@@ -1,6 +1,6 @@
 import { downloadJson } from "./downloadJson.js"
 import { generateMap } from "./generateMap.js"
-import { BLOCK_TYPES, BLOCK_TYPES_HANDLERS } from "./configuration.js"
+import { BLOCK_TYPES, BLOCK_TYPES_HANDLERS, BLOCK_TYPES_CLOSE_HANDLERS } from "./configuration.js"
 import { generateGrid, generateTypesButtons } from "./initialGeneration.js"
 const cells = generateGrid()
 const blockTypeButtons = generateTypesButtons(BLOCK_TYPES)
@@ -22,14 +22,19 @@ for (const cell of cells) {
     if (cell.className === "") {
       cell.className = blockType.name
       cell.style.backgroundColor = blockType.color
+
       // additional functionality
       if (BLOCK_TYPES_HANDLERS[blockType.name]) {
         prevMoveBlock = BLOCK_TYPES_HANDLERS[blockType.name](cell, prevMoveBlock)
       }
     } else {
-      cell.className = ""
+      // additional functionality
+      if (BLOCK_TYPES_CLOSE_HANDLERS[cell.className]) {
+        prevMoveBlock = BLOCK_TYPES_CLOSE_HANDLERS[cell.className]({cells})
+      }
+
       cell.style.backgroundColor = "white"
-      cell.textContent = ""
+      cell.className = ""
     }
   })
 }

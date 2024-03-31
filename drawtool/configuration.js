@@ -29,3 +29,20 @@ export const BLOCK_TYPES_HANDLERS = {
         }
     }
 }
+
+// BLOCK_TYPES_CLOSE_HANDLERS: handles for additional functionality when cell of specific block type is deleted
+export const BLOCK_TYPES_CLOSE_HANDLERS = {
+    moving: ({cells}) => {
+        // clear all existing moving cells
+        for (const cell of cells) {
+            if (cell.className === "moving") {
+                cell.textContent = ""
+                cell.dataset.motion = undefined
+                cell.className = ""
+                cell.style.backgroundColor = "white"
+            }
+        }
+
+        return null
+    }
+}
