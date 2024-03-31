@@ -1,6 +1,8 @@
 ### Puzzle Game
+- Modal: create modal function
+- 2 levels
 - Moving Block: motion=[x, y]
-    test all cases
+    deletion of motion block: deletes the alternate as well
 - Shoot: use bullet to break block, limited bullets
 - Health System: ...
 - Turret: if player seen, shoots (depletes health)

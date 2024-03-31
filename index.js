@@ -1,5 +1,5 @@
 import { updatePlayer } from "./js/player.js"
-import { display } from "./js/display.js"
+import { modal } from "./js/modal.js"
 import { render } from "./js/render.js"
 import { loadMap } from "./js/loadMap.js"
 import { levels, BLOCK_HANDLERS, NO_COLLISION_BLOCKS } from "./js/configuration.js"
