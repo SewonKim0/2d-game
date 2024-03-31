@@ -32,6 +32,10 @@ function game() {
         player.pos = [0, 0]
         
         levelIndex++
+        if (levelIndex >= levels.length) {
+            modal("<h1>You win!</h1>")
+            levelIndex = 0
+        }
         loadMap(blocks, levels[levelIndex])
     }
 
