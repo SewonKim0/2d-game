@@ -48,6 +48,23 @@
             background-color: white;
         }
 
+        /* Unpack Button */
+        .unpack-button {
+            padding: 0.5rem;
+            width: max-content;
+            margin-top: 0.5rem;
+            border: 3px solid black;
+        }
+        .unpack-button:hover {
+            background-color: lightgray;
+        }
+        .unpack-button:active {
+            background-color: white;
+        }
+        .unpack-button-label {
+            margin-left: 1.5rem;
+        }
+
         /* Grid */
         .grid {
             width: 90%;
@@ -108,7 +125,11 @@
             <!-- Buttons generated via js -->
         </div>
 
-        <button class="generate-button"> Generate Map </button>
+        <div>
+            <button class="generate-button"> Generate Map </button>
+            <label class="unpack-button-label" for="file"> Unpack From JSON: </label>
+            <input class="unpack-button" type="file" id="file" accept="application/json">
+        </div>
     </div>
 
     <div class="grid">

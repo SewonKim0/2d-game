@@ -2,6 +2,7 @@ import { downloadJson } from "./downloadJson.js"
 import { generateMap } from "./generateMap.js"
 import { BLOCK_TYPES, BLOCK_TYPES_HANDLERS, BLOCK_TYPES_CLOSE_HANDLERS } from "./configuration.js"
 import { generateGrid, generateTypesButtons } from "./initialGeneration.js"
+import "./unpack.js"
 const cells = generateGrid()
 const blockTypeButtons = generateTypesButtons(BLOCK_TYPES)
 
