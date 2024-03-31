@@ -29,6 +29,7 @@ for (const cell of cells) {
     } else {
       cell.className = ""
       cell.style.backgroundColor = "white"
+      cell.textContent = ""
     }
   })
 }
