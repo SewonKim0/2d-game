@@ -48,6 +48,6 @@ export const BLOCK_TYPES_CLOSE_HANDLERS = {
 export function clearCell(cell) {
     cell.className = ""
     cell.textContent = ""
-    cell.dataset.motion = undefined
+    delete cell.dataset["motion"]
     cell.style.backgroundColor = "white"
 }

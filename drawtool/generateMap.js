@@ -30,7 +30,7 @@ export function generateMap() {
             ],
             size: [BLOCK_SIZE, BLOCK_SIZE],
             type: cell.className,
-            motion: cell.dataset.motion ? JSON.parse(cell.dataset.motion) : undefined,
+            motion: cell.dataset.motion ? JSON.parse(cell.dataset.motion) : null,
             frameCount: FRAME_COUNT
         }
     })

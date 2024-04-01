@@ -1,4 +1,5 @@
 import { clearCell } from "./configuration.js"
+import { BLOCK_SIZE, BLOCK_OFFSET } from "./configuration.js";
 
 const fileInput = document.querySelector(".unpack-button")
 
@@ -18,6 +19,12 @@ fileInput.addEventListener("change", () => {
                 continue
             }
             clearCell(cell)
+        }
+
+        // fill cells from json
+        for (const entry of json) {
+            const row = (entry.pos[0] / BLOCK_SIZE) - BLOCK_OFFSET
+            console.log(entry, row)
         }
     }
     reader.readAsText(file)
