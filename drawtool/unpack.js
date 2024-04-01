@@ -1,3 +1,5 @@
+import { clearCell } from "./configuration.js"
+
 const fileInput = document.querySelector(".unpack-button")
 
 /* Unpack Map via JSON */
@@ -15,11 +17,7 @@ fileInput.addEventListener("change", () => {
             if (cell.className === "start") {
                 continue
             }
-
-            cell.classList = ""
-            cell.style.backgroundColor = "white"
-            cell.dataset.motion = undefined
-            cell.textContent = ""
+            clearCell(cell)
         }
     }
     reader.readAsText(file)

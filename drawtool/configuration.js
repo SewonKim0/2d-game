@@ -36,13 +36,18 @@ export const BLOCK_TYPES_CLOSE_HANDLERS = {
         // clear all existing moving cells
         for (const cell of cells) {
             if (cell.className === "moving") {
-                cell.textContent = ""
-                cell.dataset.motion = undefined
-                cell.className = ""
-                cell.style.backgroundColor = "white"
+                clearCell(cell)
             }
         }
 
         return null
     }
+}
+
+// clear cell function
+export function clearCell(cell) {
+    cell.className = ""
+    cell.textContent = ""
+    cell.dataset.motion = undefined
+    cell.style.backgroundColor = "white"
 }
