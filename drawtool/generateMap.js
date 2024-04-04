@@ -31,7 +31,7 @@ export function generateMap() {
             size: [BLOCK_SIZE, BLOCK_SIZE],
             type: cell.className,
             motion: cell.dataset.motion ? JSON.parse(cell.dataset.motion) : null,
-            frameCount: FRAME_COUNT
+            frameCount: cell.dataset.framecount ? parseInt(cell.dataset.framecount) : FRAME_COUNT
         }
     })
     map = map.filter(cell => cell !== null)

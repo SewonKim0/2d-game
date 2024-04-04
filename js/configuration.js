@@ -1,5 +1,5 @@
 // levels: list of levels to load, represented by json files
-export const levels = ["level2", "level1", "level2"]
+export const levels = ["test", "level1", "level2"]
 
 // block handlers: code to handle rendering of each block type
 export const BLOCK_HANDLERS = {

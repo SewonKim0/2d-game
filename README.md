@@ -1,5 +1,4 @@
 ### Puzzle Game
-- Moving Block: fix vertical movers going haywire error
 - Draw Tool: make moving block frameCount customizable
 - Shoot: use bullet to break block, limited bullets
 - Health System: ...

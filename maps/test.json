@@ -1,1 +1,8 @@
-[{"pos":[-96,-32],"size":[64,64],"type":"moving","motion":[0,-64],"frameCount":200}]
+[{"pos":[-352,-352],"size":[64,64],"type":"moving","motion":[0,64],"frameCount":150},
+{"pos":[-288,-352],"size":[64,64],"type":"moving","motion":[0,128],"frameCount":150},
+{"pos":[-224,-352],"size":[64,64],"type":"moving","motion":[0,192],"frameCount":150},
+{"pos":[-160,-352],"size":[64,64],"type":"moving","motion":[0,256],"frameCount":150},
+{"pos":[96,-352],"size":[64,64],"type":"moving","motion":[0,256],"frameCount":100},
+{"pos":[160,-352],"size":[64,64],"type":"moving","motion":[0,256],"frameCount":80},
+{"pos":[224,-352],"size":[64,64],"type":"moving","motion":[0,256],"frameCount":60},
+{"pos":[288,-352],"size":[64,64],"type":"moving","motion":[0,256],"frameCount":40}]

@@ -1,3 +1,5 @@
+const framecountInput = document.getElementById("framecount")
+
 // block-related data
 export const BLOCK_SIZE = 64
 export const BLOCK_OFFSET = -9.5
@@ -25,6 +27,7 @@ export const BLOCK_TYPES_HANDLERS = {
             const yDiff = cell.dataset.row - prevMoveBlock.dataset.row
             const xDiff = cell.dataset.col - prevMoveBlock.dataset.col
             prevMoveBlock.dataset.motion = JSON.stringify([xDiff * BLOCK_SIZE, yDiff * BLOCK_SIZE])
+            prevMoveBlock.dataset.framecount = framecountInput.value
             return null
         }
     }
@@ -49,5 +52,6 @@ export function clearCell(cell) {
     cell.className = ""
     cell.textContent = ""
     delete cell.dataset["motion"]
+    delete cell.dataset["framecount"]
     cell.style.backgroundColor = "white"
 }
