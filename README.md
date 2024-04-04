@@ -1,7 +1,6 @@
 ### Puzzle Game
-- Draw Tool: make json unpack system (edit existing maps)
+- Moving Block: fix vertical movers going haywire error
 - Draw Tool: make moving block frameCount customizable
-- Moving: fix vertical movers going haywire error
 - Shoot: use bullet to break block, limited bullets
 - Health System: ...
 - Turret: if player seen, shoots (depletes health)

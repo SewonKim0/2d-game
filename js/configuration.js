@@ -1,5 +1,5 @@
 // levels: list of levels to load, represented by json files
-export const levels = ["level1", "level2"]
+export const levels = ["level2", "level1", "level2"]
 
 // block handlers: code to handle rendering of each block type
 export const BLOCK_HANDLERS = {
@@ -52,15 +52,21 @@ export const BLOCK_HANDLERS = {
         if (block.forward) {
             block.pos[0] += block.motion[0] / block.frameCount
             block.pos[1] += block.motion[1] / block.frameCount
+            // if pos: currPos > originalPos + motion -> flip
+            // if neg: currPos < originalPos + motion -> flip
             if ((block.motion[0] >= 0 && block.pos[0] > block.originalPos[0] + block.motion[0])
-                || (block.motion[0] < 0 && block.pos[0] < block.originalPos[0] + block.motion[0])) {
+                || (block.motion[0] < 0 && block.pos[0] < block.originalPos[0] + block.motion[0])
+                || (block.motion[1] >= 0 && block.pos[1] > block.originalPos[1] + block.motion[1])
+                || (block.motion[1] < 0 && block.pos[1] < block.originalPos[1] + block.motion[1])) {
                 block.forward = false
             }
         } else {
             block.pos[0] -= block.motion[0] / block.frameCount
             block.pos[1] -= block.motion[1] / block.frameCount
             if ((block.motion[0] >= 0 && block.pos[0] < block.originalPos[0])
-                || (block.motion[0] < 0 && block.pos[0] > block.originalPos[0])) {
+                || (block.motion[0] < 0 && block.pos[0] > block.originalPos[0])
+                || (block.motion[1] >= 0 && block.pos[1] < block.originalPos[1])
+                || (block.motion[1] < 0 && block.pos[1] > block.originalPos[1])) {
                 block.forward = true
             }
         }
