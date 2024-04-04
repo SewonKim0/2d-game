@@ -1,6 +1,8 @@
 ### Puzzle Game
-- Bullets System: create bullets & cooldown system
+- Shoot: create shoot audio system
+- Reset: create reset button
 - Breakable Block: create new breakable block type
+    break during render() in response to shootObj.shoot?
 - Dash System: dash in mouse direction via shift
 - Health System: ...
 - Turret: if player seen, shoots (depletes health)

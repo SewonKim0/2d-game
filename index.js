@@ -37,12 +37,13 @@ function game() {
             modal("<h1>You win!</h1>")
             levelIndex = 0
         }
-        loadMap(blocks, levels[levelIndex])
+        loadMap(blocks, levels[levelIndex], shootObj)
     }
 
     // handle kill block collision
     if (returnData.kill === true) {
         player.pos = [0, 0]
+        loadMap(blocks, levels[levelIndex], shootObj)
     }
 
     // update player pos (with collision detection)
@@ -51,7 +52,7 @@ function game() {
     requestAnimationFrame(game)
 }
 requestAnimationFrame(game)
-loadMap(blocks, levels[levelIndex])
+loadMap(blocks, levels[levelIndex], shootObj)
 
 // mouse position tracker
 canvas.addEventListener('mousemove', function(event) {
