@@ -1,5 +1,5 @@
 ### Puzzle Game
-- Shoot: use bullet to break block, limited bullets
+- Bullets System: create bullets & cooldown system
 - Breakable Block: create new breakable block type
 - Dash System: dash in mouse direction via shift
 - Health System: ...

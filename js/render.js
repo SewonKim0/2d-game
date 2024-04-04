@@ -7,9 +7,10 @@
  * @param {Number[]} mousePosition Current mouse position [x, y]
  * @param {Object} player Player object
  * @param {Object[]} blocks Blocks array
+ * @param {Object} shootObj Data transfer object related to shoot data
  * @return {Object} Return data based on current state of map { end: bool }
  */
-export function render(BLOCK_HANDLERS, canvas, ctx, mousePosition, player, blocks) {
+export function render(BLOCK_HANDLERS, canvas, ctx, mousePosition, player, blocks, shootObj) {
     const returnData = {}
 
     // board dims
@@ -56,6 +57,26 @@ export function render(BLOCK_HANDLERS, canvas, ctx, mousePosition, player, block
             block: block,
             returnData: returnData
         })
+    }
+
+    // render shooting
+    if (shootObj.frameCount > 0) {
+        let dx = shootObj.mouseX - (canvas.width / 2)
+        let dy = shootObj.mouseY - (canvas.height / 2)
+        let length = Math.sqrt(dx * dx + dy * dy)
+        dx /= length
+        dy /= length
+        let extendedX = shootObj.mouseX + (dx * 1000)
+        let extendedY = shootObj.mouseY + (dy * 1000)
+
+        ctx.beginPath()
+        ctx.strokeStyle = "black"
+        ctx.lineWidth = 5
+        ctx.moveTo(canvas.width / 2, canvas.height / 2)
+        ctx.lineTo(extendedX, extendedY)
+        ctx.stroke()
+
+        shootObj.frameCount -= 1
     }
 
     return returnData
