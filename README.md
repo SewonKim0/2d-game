@@ -1,6 +1,7 @@
 ### Puzzle Game
-- Draw Tool: make moving block frameCount customizable
 - Shoot: use bullet to break block, limited bullets
+- Breakable Block: create new breakable block type
+- Dash System: dash in mouse direction via shift
 - Health System: ...
 - Turret: if player seen, shoots (depletes health)
 

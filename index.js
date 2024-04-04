@@ -3,6 +3,7 @@ import { modal } from "./js/modal.js"
 import { render } from "./js/render.js"
 import { loadMap } from "./js/loadMap.js"
 import { levels, BLOCK_HANDLERS, NO_COLLISION_BLOCKS } from "./js/configuration.js"
+import "./js/shoot.js"
 
 // setup canvas
 let canvas = document.querySelector('canvas')
