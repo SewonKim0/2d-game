@@ -4,6 +4,7 @@ import { render } from "./js/render.js"
 import { loadMap } from "./js/loadMap.js"
 import { levels, BLOCK_HANDLERS, NO_COLLISION_BLOCKS } from "./js/configuration.js"
 import { shootObj } from "./js/shoot.js"
+import { setup } from "./js/reset.js"
 
 // setup canvas
 let canvas = document.querySelector('canvas')
@@ -18,6 +19,13 @@ let blocks = []
 let levelIndex = 0
 let currTime = 0
 
+// reset functionality
+function reset() {
+    player.pos = [0, 0]
+    loadMap(blocks, levels[levelIndex], shootObj)
+}
+setup(reset) // setup reset button
+
 // function to render the state of game
 function game() {
     // get delta multiplier (to account for frame speed)
@@ -30,20 +38,17 @@ function game() {
 
     // handle end block collision
     if (returnData.end === true) {
-        player.pos = [0, 0]
-        
         levelIndex++
         if (levelIndex >= levels.length) {
             modal("<h1>You win!</h1>")
             levelIndex = 0
         }
-        loadMap(blocks, levels[levelIndex], shootObj)
+        reset()
     }
 
     // handle kill block collision
     if (returnData.kill === true) {
-        player.pos = [0, 0]
-        loadMap(blocks, levels[levelIndex], shootObj)
+        reset()
     }
 
     // update player pos (with collision detection)

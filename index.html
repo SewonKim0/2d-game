@@ -35,24 +35,33 @@
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
+
+            display: flex;
+            align-items: center;
         }
-        .drawtool, .github {
+        .drawtool, .github, .reset {
+            display: block;
+            height: 2.5rem;
             padding: 0.5rem;
             border: 3px solid black;
             background-color: white;
             text-decoration: none;
             color: black;
         }
-        .drawtool:hover, .github:hover {
+        .drawtool:hover, .github:hover, .reset:hover {
             font-weight: bold;
         }
         .github {
+            margin-right: 1.5rem;
+        }
+        .reset {
             margin-right: 1.5rem;
         }
     </style>
 </head>
 <body>
     <div class="top-buttons">
+        <button class="reset"> Reset </button>
         <a class="github" href="https://github.com/SewonKim0/2d-game"> Github </a>
         <a class="drawtool" href="./drawtool/"> Draw Tool </a>
     </div>
