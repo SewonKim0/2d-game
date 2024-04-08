@@ -1,5 +1,4 @@
 ### Puzzle Game
-- Shoot: create shoot audio system
 - Reset: create reset button
 - Breakable Block: create new breakable block type
     break during render() in response to shootObj.shoot?

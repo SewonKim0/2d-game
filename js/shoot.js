@@ -19,12 +19,18 @@ export const shootObj = {
 // click: shoot
 canvas.addEventListener('click', function(event) {
     if (shootObj.bullets > 0 && shootObj.cooldown === false) {
+        // audio
+        const audio = new Audio('../static/audio/shoot.mp3')
+        audio.play()
+
+        // visuals
         const mouseX = event.clientX - canvas.getBoundingClientRect().left
         const mouseY = event.clientY - canvas.getBoundingClientRect().top
         shootObj.mouseX = mouseX
         shootObj.mouseY = mouseY
         shootObj.frameCount = 5
 
+        // mechanics
         shootObj.bullets -= 1
         shootObj.cooldown = true
         setTimeout(() => {
