@@ -10,7 +10,8 @@ export const BLOCK_TYPES = [
     { name: "normal", color: "lightgray" },
     { name: "end", color: "lime" },
     { name: "kill", color: "red" },
-    { name: "moving", color: "rgba(255, 0, 0, 0.5)" }
+    { name: "moving", color: "rgba(255, 0, 0, 0.5)" },
+    { name: "breakable", color: "rgba(0, 0, 255, 0.5)" }
 ]
 
 // BLOCK_TYPES_HANDLERS: handlers for additional functionality when cell set to a specific block type

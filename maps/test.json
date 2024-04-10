@@ -1,1 +1,4 @@
-[{"pos":[-224,-224],"size":[64,64],"type":"normal","motion":null,"frameCount":200},{"pos":[-160,-224],"size":[64,64],"type":"kill","motion":null,"frameCount":200},{"pos":[-224,-160],"size":[64,64],"type":"normal","motion":null,"frameCount":200},{"pos":[-160,-160],"size":[64,64],"type":"end","motion":null,"frameCount":200},{"pos":[-224,-96],"size":[64,64],"type":"normal","motion":null,"frameCount":200},{"pos":[-160,-96],"size":[64,64],"type":"normal","motion":null,"frameCount":200}]
+[{"pos":[-160,-160],"size":[64,64],"type":"end","motion":null,"frameCount":200},
+{"pos":[-160,-32],"size":[64,64],"type":"breakable","motion":null,"frameCount":200},
+{"pos":[-160,96],"size":[64,64],"type":"breakable","motion":null,"frameCount":200},
+{"pos":[-32,96],"size":[64,64],"type":"breakable","motion":null,"frameCount":200}]
