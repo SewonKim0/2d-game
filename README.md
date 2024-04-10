@@ -1,5 +1,4 @@
 ### Puzzle Game
-- Shoot: create remaining bullets indicator
 - Breakable Block: create new breakable block type
     break during render() in response to shootObj.shoot?
 - Dash System: dash in mouse direction via shift

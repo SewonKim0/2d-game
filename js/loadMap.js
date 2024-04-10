@@ -1,3 +1,5 @@
+const bulletsLabel = document.querySelector(".bullets")
+
 /**
  * THis function will load given map by editing the blocks array
  * @param {Object[]} blocks 
@@ -17,4 +19,5 @@ export function loadMap(blocks, mapName, shootObj) {
 
     // give bullets
     shootObj.bullets = 5
+    bulletsLabel.textContent = `Bullets: ${shootObj.bullets}`
 }

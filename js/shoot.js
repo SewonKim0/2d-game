@@ -1,4 +1,5 @@
 const canvas = document.querySelector('canvas')
+const bulletsLabel = document.querySelector(".bullets")
 
 // shoot data, to be received by index.js
     // frameCount: number of frames to render shoot for
@@ -32,6 +33,7 @@ canvas.addEventListener('click', function(event) {
 
         // mechanics
         shootObj.bullets -= 1
+        bulletsLabel.textContent = `Bullets: ${shootObj.bullets}`
         shootObj.cooldown = true
         setTimeout(() => {
             shootObj.cooldown = false
